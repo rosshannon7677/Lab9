@@ -19,10 +19,18 @@ dst = cv2.cornerHarris(imgGray, blockSize, aperture_size, k)
 # Create a deep copy of the original image
 imgHarris = copy.deepcopy(imgOrig)
 
-# Mark the corners on the deep copy
-imgHarris[dst > 0.01 * dst.max()] = [0, 0, 255]  # Red color for corners
+# Set the threshold for corner detection
+threshold = 0.01
+
+# Loop through every element in the dst matrix
+for i in range(len(dst)):
+    for j in range(len(dst[i])):
+        # Check if the element is greater than the threshold
+        if dst[i][j] > (threshold * dst.max()):
+            # Draw a circle on the imgHarris image
+            cv2.circle(imgHarris, (j, i), 3, (0, 0, 255), -1)  # Red color for circles
 
 # Plot the result
 plt.imshow(cv2.cvtColor(imgHarris, cv2.COLOR_BGR2RGB))
-plt.title('Harris Corner Detection')
+plt.title('Harris Corner Detection with Circles')
 plt.show()
