@@ -30,6 +30,11 @@ for i in range(len(dst)):
             # Draw a circle on the imgHarris image
             cv2.circle(imgHarris, (j, i), 3, (0, 0, 255), -1)  # Red color for circles
 
+# Plot the image with Harris corners
+plt.imshow(cv2.cvtColor(imgHarris, cv2.COLOR_BGR2RGB))
+plt.title('Harris Corners')
+plt.show()
+
 # Plot the result
 plt.imshow(cv2.cvtColor(imgHarris, cv2.COLOR_BGR2RGB))
 plt.title('Harris Corner Detection with Circles')
