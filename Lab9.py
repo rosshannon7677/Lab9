@@ -59,7 +59,7 @@ corners = cv2.goodFeaturesToTrack(imgGray, maxCorners, qualityLevel, minDistance
 imgGFTT = copy.deepcopy(imgOrig)
 
 # Convert corners to integers
-corners = np.int0(corners)
+corners = np.intp(corners)
 
 # Draw circles on the image for each detected corner using Shi-Tomasi
 for corner in corners:
@@ -69,9 +69,9 @@ for corner in corners:
 # Create a deep copy of the original image for Shi-Tomasi corners
 imgShiTomasi = copy.deepcopy(imgOrig)
 
-# Draw circles on the image for each detected corner using Shi-Tomasi
-for corner in corners:
-    x, y = corner.ravel()
+# Loop through the corners array and draw circles at each Shi-Tomasi corner
+for i in corners:
+    x, y = i.ravel()
     cv2.circle(imgShiTomasi, (x, y), 3, (255, 0, 0), -1)  # Blue color for Shi-Tomasi circles
 
 # Plot the image with Shi-Tomasi corners
