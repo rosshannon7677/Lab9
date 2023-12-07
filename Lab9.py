@@ -3,7 +3,7 @@ import cv2
 from matplotlib import pyplot as plt
 
 # Load the image
-imgOrig = cv2.imread(r'C:\Lab8\ATU.jpg')
+imgOrig = cv2.imread(r'C:\Lab9\ATU2.jpg')
 
 # Check if the image is loaded successfully
 if imgOrig is None:
